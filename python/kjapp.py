@@ -17,7 +17,6 @@ inputTime = int(inputTimeArray[0])*3600 + int(inputTimeArray[1])*60 + int(inputT
 df = dfMale if gender=="M" else dfFemale
 
 ageRow = df[df["Age"]==age].values.tolist()[0]
-print(ageRow)
 # 0-indexed indices in excel file: 5k = 2, 10k = 7, HM = 13, M = 16.
 ageStandard5K = ageRow[2]
 ageStandard10K = ageRow[7]
