@@ -225,7 +225,7 @@ form.addEventListener("change", function() {
     timeSS = Number.isNaN(timeSS.value) ? timeSS = 0 : Number(timeSS);
     let totalTimeInSeconds = timeHH*3600 + timeMM*60 + timeSS;
 
-    let ageGrading = 1
+    let ageGrading = 0
     switch(distance) {
       case "5K":
         ageGrading = ageStandards[0]/totalTimeInSeconds;
@@ -240,7 +240,8 @@ form.addEventListener("change", function() {
         ageGrading = ageStandards[3]/totalTimeInSeconds;
         break;
     }
-
-    document.getElementById("output").innerHTML = "<b>Ekvivalente tider:</b> <br> <b>5K: </b>" + formatTime(ageStandards[0]/ageGrading) + "<br> <b>10K: </b>" + formatTime(ageStandards[1]/ageGrading) + "<br> <b>HM: </b>" + formatTime(ageStandards[2]/ageGrading) + "<br> <b>M: </b>" + formatTime(ageStandards[3]/ageGrading);
+    if (ageGrading != 0 && totalTimeInSeconds != 0) {
+      document.getElementById("output").innerHTML = "<b>Ekvivalente tider:</b> <br> <b>5K: </b>" + formatTime(ageStandards[0]/ageGrading) + "<br> <b>10K: </b>" + formatTime(ageStandards[1]/ageGrading) + "<br> <b>HM: </b>" + formatTime(ageStandards[2]/ageGrading) + "<br> <b>M: </b>" + formatTime(ageStandards[3]/ageGrading);
+    }
   }
 });
